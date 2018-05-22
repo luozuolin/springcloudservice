@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: provider-user
+eureka:
+  instance:
+    prefer-ip-address: true
+    virtual-host-name: microservice-provider-user
+  client:
+    service-url:
+      defaultZone:   http://peer1:8761/eureka,http://peer2:8762/eureka
+
+---
+spring:
+  profiles: peer1                                 # 指定profile=peer1
+server:
+  port: 8001
+
+---
+spring:
+  profiles: peer2
+server:
+  port: 8002

@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: ribbonconsimer
+server:
+  port: 8010
