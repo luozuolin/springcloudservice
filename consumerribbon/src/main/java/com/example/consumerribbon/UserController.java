@@ -30,7 +30,7 @@ public class UserController {
     @GetMapping("/log-instance")
     public void logHelloInstance()
     {
-        ServiceInstance serviceInstance=this.loadBalancerClient.choose("microservice-provider-user");
+        ServiceInstance serviceInstance=this.loadBalancerClient.choose("provider-user");
         UserController.LOGGER.info("{}:{}:{}",serviceInstance.getServiceId(),serviceInstance.getHost(),serviceInstance.getPort());
     }
 

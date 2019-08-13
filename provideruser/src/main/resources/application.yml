@@ -2,12 +2,26 @@ spring:
   application:
     name: provider-user
 eureka:
-  instance:
-    prefer-ip-address: true
-    virtual-host-name: microservice-provider-user
+ # instance:
+ #   prefer-ip-address: true
+  #  virtual-host-name: microservice-provider-user
   client:
     service-url:
       defaultZone:   http://peer1:8761/eureka,http://peer2:8762/eureka
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+    metadata-map:
+      user.name: admin
+      user.password: 123456
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
 
 ---
 spring:
