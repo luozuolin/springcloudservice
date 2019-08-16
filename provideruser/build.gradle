@@ -30,6 +30,8 @@ dependencies {
 	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
 	compile('org.springframework.boot:spring-boot-starter')
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-bus-amqp', version: '2.1.2.RELEASE'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-hystrix', version: '1.4.7.RELEASE'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 

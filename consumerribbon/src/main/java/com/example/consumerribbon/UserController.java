@@ -25,7 +25,13 @@ public class UserController {
     public String gethello(@PathVariable String name)
     {
         System.out.println("consumer/hello/name:"+name);
-        return "ConsumerController:"+this.restTemplate.getForObject("http://microservice-provider-user/hello/"+name,String.class);
+        return "ConsumerController:"+this.restTemplate.getForObject("http://provider-user/hello/"+name,String.class);
+    }
+    @GetMapping("/consumerHystrix/hello/{name}")
+    public String consumerHystrix(@PathVariable String name)
+    {
+        System.out.println("consumerHystrix/hello/name:"+name);
+        return "ConsumerController:"+this.restTemplate.getForObject("http://provider-user/getHystrix1",String.class);
     }
     @GetMapping("/log-instance")
     public void logHelloInstance()
